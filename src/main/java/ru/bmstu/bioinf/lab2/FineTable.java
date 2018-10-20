@@ -8,6 +8,8 @@ public class FineTable {
     private TaskType type;
     private Map<Character, Integer> keys;
 
+    public static final char GAP = '-';
+
     private final int[][] DNAfull = {
             //       A   T   G   C   S   W   R   Y   K   M   B   V   H   D   N  -
             /* A */{ 5, -4, -4, -4, -4,  1,  1, -4, -4,  1, -4, -1, -1, -1, -2, E},
@@ -101,7 +103,7 @@ public class FineTable {
         keys.put('H', 12);
         keys.put('D', 13);
         keys.put('N', 14);
-        keys.put('-', 15);
+        keys.put(GAP, 15);
     }
 
     private void setBlosumKeys() {
@@ -128,17 +130,23 @@ public class FineTable {
         keys.put('B', 20);
         keys.put('Z', 21);
         keys.put('X', 22);
-        keys.put('-', 23);
+        keys.put(GAP, 23);
     }
 
     public int get(char x, char y) {
+        if (x != GAP && !Character.isLetter(x)) {
+            throw new IllegalStateException("Wrong character in sequence: " + x);
+        } else if (y != GAP && !Character.isLetter(y)) {
+            throw new IllegalStateException("Wrong character in sequence: " + y);
+        }
+
         switch (type) {
             case BLOSUM62:
                 return BLOSUM62[keys.get(x)][keys.get(y)];
             case DNA_FULL:
                 return DNAfull[keys.get(x)][keys.get(y)];
             default:
-                if (x == '-' || y == '-') {
+                if (x == GAP || y == GAP) {
                     return E;
                 } else if (x == y) {
                     return 1;
@@ -146,5 +154,9 @@ public class FineTable {
                     return -1;
                 }
         }
+    }
+
+    public int getE() {
+        return E;
     }
 }

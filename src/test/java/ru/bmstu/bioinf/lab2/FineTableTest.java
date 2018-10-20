@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Функциональные тесты работы таблицы штрафов
+ */
 public class FineTableTest {
 
     @Test
@@ -45,7 +48,7 @@ public class FineTableTest {
     @Test
     public void getDefaultTest() {
         FineTable table = new FineTable(TaskType.DEFAULT);
-        assertEquals(1, 'A', 'A');
+        assertEquals(1, table.get('A', 'A'));
     }
 
     @Test
