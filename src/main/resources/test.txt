@@ -1,0 +1,4 @@
+>upProt
+AGGACTAAAAGCTG
+>leftProt
+AGACTTATG
