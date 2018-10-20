@@ -37,16 +37,6 @@ public class SequenceReader implements Iterator<Sequence> {
         } else {
             return false;
         }
-
-//        if (currentLine + 1 >= lines.size()) {
-//            return false;
-//        }
-//
-//        if (next == null) {
-//            next = getNext();
-//        }
-//
-//        return true;
     }
 
     @Override
