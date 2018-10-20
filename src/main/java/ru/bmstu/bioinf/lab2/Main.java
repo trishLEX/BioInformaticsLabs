@@ -59,6 +59,8 @@ public class Main {
             }
 
         } catch (ParseException e) {
+            HelpFormatter formatter = new HelpFormatter();
+            formatter.printHelp("arguments", options);
             throw new IllegalStateException("Can't parse arguments", e);
         }
     }
