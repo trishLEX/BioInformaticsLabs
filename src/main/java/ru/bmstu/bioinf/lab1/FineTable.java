@@ -1,4 +1,4 @@
-package ru.bmstu.bioinf.lab2;
+package ru.bmstu.bioinf.lab1;
 
 import java.util.HashMap;
 import java.util.Map;

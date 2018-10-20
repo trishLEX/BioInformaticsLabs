@@ -1,4 +1,4 @@
-package ru.bmstu.bioinf.lab2;
+package ru.bmstu.bioinf.lab1;
 
 import java.io.File;
 import java.io.IOException;

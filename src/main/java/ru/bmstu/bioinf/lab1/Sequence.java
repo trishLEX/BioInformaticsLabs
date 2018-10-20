@@ -1,4 +1,4 @@
-package ru.bmstu.bioinf.lab2;
+package ru.bmstu.bioinf.lab1;
 
 public class Sequence {
     private String name;

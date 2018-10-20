@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>BioInformaticsLabs</groupId>
-    <artifactId>Labs</artifactId>
+    <artifactId>Lab</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -19,7 +19,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>ru.bmstu.bioinf.lab2.Main</mainClass>
+                    <mainClass>ru.bmstu.bioinf.lab1.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

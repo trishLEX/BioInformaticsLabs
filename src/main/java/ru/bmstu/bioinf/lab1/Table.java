@@ -1,8 +1,8 @@
-package ru.bmstu.bioinf.lab2;
+package ru.bmstu.bioinf.lab1;
 
 import java.io.*;
 
-import static ru.bmstu.bioinf.lab2.FineTable.GAP;
+import static ru.bmstu.bioinf.lab1.FineTable.GAP;
 
 public class Table {
     private TableElement[][] table;
