@@ -1,8 +1,62 @@
 package ru.bmstu.bioinf.lab2;
 
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
 public class FineTableTest {
-    public static void main(String[] args) {
-        FineTable table = new FineTable("C:\\Users\\trishlex\\IdeaProjects\\BioInformaticsLabs\\src\\main\\java\\ru\\bmstu\\bioinf\\lab2\\blosum.txt");
-        System.out.println(table.get('A', 'Y'));
+
+    @Test
+    public void getFromBlosumTableTest() {
+        FineTable table = new FineTable(TaskType.BLOSUM62);
+        assertEquals(-2, table.get('A', 'Y'));
+    }
+
+    @Test
+    public void getFromBlosumTableGapTest() {
+        FineTable table = new FineTable(TaskType.BLOSUM62);
+        assertEquals(-2, table.get('-', 'A'));
+    }
+
+    @Test
+    public void getFromBlosumCustomGapTest() {
+        FineTable table = new FineTable(TaskType.BLOSUM62, -17);
+        assertEquals(-17, table.get('A', '-'));
+    }
+
+    @Test
+    public void getFromDNAfullTest() {
+        FineTable table = new FineTable(TaskType.DNA_FULL);
+        assertEquals(-4, table.get('T', 'R'));
+    }
+
+    @Test
+    public void getFromDNAfullGapTest() {
+        FineTable table = new FineTable(TaskType.DNA_FULL);
+        assertEquals(-2, table.get('-', 'A'));
+    }
+
+    @Test
+    public void getFromDNAfullCustomGapTest() {
+        FineTable table = new FineTable(TaskType.DNA_FULL, -17);
+        assertEquals(-17, table.get('B', '-'));
+    }
+
+    @Test
+    public void getDefaultTest() {
+        FineTable table = new FineTable(TaskType.DEFAULT);
+        assertEquals(1, 'A', 'A');
+    }
+
+    @Test
+    public void getDefaultGapTest() {
+        FineTable table = new FineTable(TaskType.DEFAULT);
+        assertEquals(-2, table.get('A', '-'));
+    }
+
+    @Test
+    public void getDefaultCustomGapTest() {
+        FineTable table = new FineTable(TaskType.DEFAULT, -17);
+        assertEquals(-17, table.get('-', 'B'));
     }
 }
