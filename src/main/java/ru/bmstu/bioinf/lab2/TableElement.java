@@ -1,6 +1,8 @@
 package ru.bmstu.bioinf.lab2;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TableElement implements Comparable<TableElement> {
     private char elementUp;
@@ -92,12 +94,31 @@ public class TableElement implements Comparable<TableElement> {
         String second = getLeftPath().reverse().toString();
 
         if (first.length() > 100 || second.length() > 100) {
-            out.println("1st:\n" + getUpPath().reverse().toString());
-            out.println("2nd:\n" + getLeftPath().reverse().toString());
+            out.println("1st:");
+            String[] lines = splitToNChar(first, 100);
+            for (int i = 0; i < lines.length; i++) {
+                out.println(lines[i]);
+            }
+
+            out.println("2nd:");
+            lines = splitToNChar(second, 100);
+            for (int i = 0; i < lines.length; i++) {
+                out.println(lines[i]);
+            }
         } else {
-            out.println("1st:" + getUpPath().reverse().toString());
-            out.println("2nd:" + getLeftPath().reverse().toString());
+            out.println("1st:" + first);
+            out.println("2nd:" + second);
         }
+    }
+
+    private String[] splitToNChar(String text, int size) {
+        List<String> parts = new ArrayList<>();
+
+        int length = text.length();
+        for (int i = 0; i < length; i += size) {
+            parts.add(text.substring(i, Math.min(length, i + size)));
+        }
+        return parts.toArray(new String[0]);
     }
 
     private StringBuilder getUpPath() {
