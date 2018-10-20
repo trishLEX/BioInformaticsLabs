@@ -39,4 +39,12 @@ public class TableTest {
         SequenceReader reader = new SequenceReader("src/main/resources/test.txt");
         new Table(reader.next(), reader.next(), TaskType.DEFAULT).printResult();
     }
+
+    @Test
+    public void test6() {
+        Sequence sequence1 = new Sequence(UP, "MKMRFFSSPCGKAAVDPADRCKEVQQIRDQHPSKIPVIIERYKGEKQCGKAAVDPADRKTKFLVPDHVNMSELVKI" +
+                "IRRRLQLNPTQAFFLLVNQHSMVSVSTPIADIYEQEKDEDGFLYMVYASQETFGFIRENE");
+        Sequence sequence2 = new Sequence(LEFT, "CGKAAVDPADRARBNCGKAAVDPADRQGHYQHSMVSVSTPIADIYEQEKRENE");
+        new Table(sequence1, sequence2, TaskType.BLOSUM62).printResult();
+    }
 }
