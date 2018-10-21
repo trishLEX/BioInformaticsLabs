@@ -4,10 +4,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Элемент таблицы
+ */
 public class TableElement implements Comparable<TableElement> {
+    /**
+     * Соответсвующий символ в верхней и левой последовательностях в таблице
+     */
     private char elementUp;
     private char elementLeft;
 
+    /**
+     * Координаты в таблице
+     */
     private int i;
     private int j;
 
@@ -89,6 +98,10 @@ public class TableElement implements Comparable<TableElement> {
         return " " + (score < 0 ? Integer.toString(score) : " " + score);
     }
 
+    /**
+     * Восстанваливает последовательности, начиная с данного элемента в {@param out}
+     * @param out - поток, в который пишутся последовательности
+     */
     public void printSequences(PrintStream out) {
         String first = getUpPath().reverse().toString();
         String second = getLeftPath().reverse().toString();

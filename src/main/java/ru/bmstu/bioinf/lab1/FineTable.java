@@ -3,6 +3,9 @@ package ru.bmstu.bioinf.lab1;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Таблица штрафов
+ */
 public class FineTable {
     private int E = -2;
     private TaskType type;

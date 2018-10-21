@@ -7,6 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * Считыватель последовательностей в формате .fasta
+ */
 public class SequenceReader implements Iterator<Sequence> {
     private Sequence next;
     private File file;

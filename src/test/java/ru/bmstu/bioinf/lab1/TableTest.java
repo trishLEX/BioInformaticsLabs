@@ -2,6 +2,9 @@ package ru.bmstu.bioinf.lab1;
 
 import org.junit.Test;
 
+/**
+ * Тесты для лабораторной работы
+ */
 public class TableTest {
     private static final String UP = "up";
     private static final String LEFT = "left";

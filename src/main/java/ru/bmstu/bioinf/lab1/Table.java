@@ -4,8 +4,15 @@ import java.io.*;
 
 import static ru.bmstu.bioinf.lab1.FineTable.GAP;
 
+/**
+ * Таблица для псоледовательностей
+ */
 public class Table {
     private TableElement[][] table;
+
+    /**
+     * Таблица штрафов
+     */
     private FineTable fineTable;
 
     private Sequence sequenceLeft;
@@ -31,7 +38,13 @@ public class Table {
         fillTable();
     }
 
+    /**
+     * Заполнение таблицы
+     */
     private void fillTable() {
+        /*
+          Инициализация GAP'ами первой строки и первого столбца
+         */
         table[0][0] = new TableElement(0, 0, 0);
         for (int i = 1; i < sequenceLeft.size() + 1; i++) {
             table[i][0] = new TableElement(GAP, sequenceLeft.get(i - 1), i, 0, fineTable.getE() * i, table[i - 1][0]);
@@ -41,6 +54,9 @@ public class Table {
             table[0][i] = new TableElement(sequenceUp.get(i - 1), GAP, 0, i, fineTable.getE() * i,  table[0][i - 1]);
         }
 
+        /*
+          Заполнение остальной части таблицы
+         */
         for (int i = 1; i < sequenceLeft.size() + 1; i++) {
             for (int j = 1; j < sequenceUp.size() + 1; j++) {
                 int diagFine = fineTable.get(sequenceLeft.get(i - 1), sequenceUp.get(j - 1));
@@ -78,6 +94,7 @@ public class Table {
         table[sequenceLeft.size()][sequenceUp.size()].printSequences(System.out);
         System.out.println();
     }
+
     public void printResult(File file) {
         try (PrintStream writer = new PrintStream(file)) {
             writer.println("score: " + table[sequenceLeft.size()][sequenceUp.size()].getScore());

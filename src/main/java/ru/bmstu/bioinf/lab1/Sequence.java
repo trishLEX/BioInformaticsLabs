@@ -1,5 +1,8 @@
 package ru.bmstu.bioinf.lab1;
 
+/**
+ * Последовательность
+ */
 public class Sequence {
     private String name;
     private String sequence;
