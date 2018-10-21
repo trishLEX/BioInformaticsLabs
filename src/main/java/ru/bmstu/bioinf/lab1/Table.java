@@ -57,12 +57,17 @@ public class Table {
         /*
           Заполнение остальной части таблицы
          */
+        boolean smallest = sequenceLeft.size() < sequenceUp.size();
         for (int i = 1; i < sequenceLeft.size() + 1; i++) {
             for (int j = 1; j < sequenceUp.size() + 1; j++) {
                 int diagFine = fineTable.get(sequenceLeft.get(i - 1), sequenceUp.get(j - 1));
 
-                int upFine = fineTable.get(sequenceLeft.get(i - 1), GAP);
-                int leftFine = fineTable.get(GAP, sequenceUp.get(j - 1));
+                //У меньшей последовательности не накладывается штраф за GAP'ы в начале и в конце
+                int upFine = !smallest && (j == 1 || j == sequenceUp.size()) ?
+                        Math.max(fineTable.get(sequenceLeft.get(i - 1), GAP), 0) : fineTable.get(sequenceLeft.get(i - 1), GAP);
+
+                int leftFine = smallest && (i == 1 || i == sequenceLeft.size()) ?
+                        Math.max(fineTable.get(GAP, sequenceUp.get(j - 1)), 0) : fineTable.get(GAP, sequenceUp.get(j - 1));
 
                 TableElement diag = table[i - 1][j - 1].addFine(diagFine);
                 TableElement up = table[i - 1][j].addFine(upFine);
