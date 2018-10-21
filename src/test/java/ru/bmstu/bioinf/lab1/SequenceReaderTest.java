@@ -8,7 +8,7 @@ import java.io.File;
  * ТОЛЬКО функциональное тестирование SequenceReader'a
  */
 public class SequenceReaderTest {
-    private static final String TEST_FILE = new File("src/test/java/ru/bmstu/bioinf/lab2/test.txt").getAbsolutePath();
+    private static final String TEST_FILE = new File("src/test/java/ru/bmstu/bioinf/lab1/test.txt").getAbsolutePath();
 
     @Test
     public void readerNoExceptionTest() {
