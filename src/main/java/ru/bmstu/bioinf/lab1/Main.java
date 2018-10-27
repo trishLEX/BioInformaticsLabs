@@ -45,12 +45,20 @@ public class Main {
             Sequence up = sequenceReader.next();
             Sequence left = sequenceReader.next();
 
-            Table table;
-            if (gap == null) {
-                table = new Table(up, left, taskType);
-            } else {
-                table = new Table(up, left, gap, taskType);
+            FineTable fineTable;
+            switch (taskType) {
+                case DNA_FULL:
+                    fineTable = new DNAfullTable(gap);
+                    break;
+                case BLOSUM62:
+                    fineTable = new Blosum62Table(gap);
+                    break;
+                default:
+                    fineTable = new DefaultFineTable(gap);
+                    break;
             }
+
+            Table table = new Table(up, left, fineTable);
 
             if (cmd.hasOption("o")) {
                 table.printResult(new File(cmd.getOptionValue("o")));

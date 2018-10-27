@@ -18,21 +18,11 @@ public class Table {
     private Sequence sequenceLeft;
     private Sequence sequenceUp;
 
-    public Table(Sequence sequenceUp, Sequence sequenceLeft, TaskType type) {
+    public Table(Sequence sequenceUp, Sequence sequenceLeft, FineTable fineTable) {
         this.sequenceLeft = sequenceLeft;
         this.sequenceUp = sequenceUp;
 
-        fineTable = new FineTable(type);
-        table = new TableElement[sequenceLeft.size() + 1][sequenceUp.size() + 1];
-
-        fillTable();
-    }
-
-    public Table(Sequence sequenceUp, Sequence sequenceLeft, int gap, TaskType type) {
-        this.sequenceLeft = sequenceLeft;
-        this.sequenceUp = sequenceUp;
-
-        fineTable = new FineTable(type, gap);
+        this.fineTable = fineTable;
         table = new TableElement[sequenceLeft.size() + 1][sequenceUp.size() + 1];
 
         fillTable();
