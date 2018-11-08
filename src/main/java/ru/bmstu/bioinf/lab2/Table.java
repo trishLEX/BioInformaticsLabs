@@ -77,20 +77,8 @@ public class Table {
 
         TableElement max = TableElement.max(mElement, iElement, dElement);
 
-        //TODO it can be useless
-        char elementLeft;
-        if (max.getI() == i) {
-            elementLeft = GAP;
-        } else {
-            elementLeft = sequenceLeft.get(i - 1);
-        }
-
-        char elementUp;
-        if (max.getJ() == j) {
-            elementUp = GAP;
-        } else {
-            elementUp = sequenceUp.get(j - 1);
-        }
+        char elementLeft = sequenceLeft.get(i - 1);
+        char elementUp = sequenceUp.get(j - 1);
 
         mTable[i][j] = new TableElement(elementUp, elementLeft, i, j, max.getScore(), max);
     }
@@ -102,22 +90,9 @@ public class Table {
 
         TableElement max = TableElement.max(mElement, iElement, dElement);
 
-        //TODO it can be useless
-        char elementLeft;
-        if (max.getI() == i) {
-            elementLeft = GAP;
-        } else {
-            elementLeft = sequenceLeft.get(i - 1);
-        }
+        char elementUp = sequenceUp.get(j - 1);
 
-        char elementUp;
-        if (max.getJ() == j) {
-            elementUp = GAP;
-        } else {
-            elementUp = sequenceUp.get(j - 1);
-        }
-
-        iTable[i][j] = new TableElement(elementUp, elementLeft, i, j, max.getScore(), max);
+        iTable[i][j] = new TableElement(elementUp, GAP, i, j, max.getScore(), max);
     }
 
     private void fillDTableElement(int i, int j) {
@@ -127,22 +102,9 @@ public class Table {
 
         TableElement max = TableElement.max(mElement, iElement, dElement);
 
-        //TODO it can be useless
-        char elementLeft;
-        if (max.getI() == i) {
-            elementLeft = GAP;
-        } else {
-            elementLeft = sequenceLeft.get(i - 1);
-        }
+        char elementLeft = sequenceLeft.get(i - 1);
 
-        char elementUp;
-        if (max.getJ() == j) {
-            elementUp = GAP;
-        } else {
-            elementUp = sequenceUp.get(j - 1);
-        }
-
-        dTable[i][j] = new TableElement(elementUp, elementLeft, i, j, max.getScore(), max);
+        dTable[i][j] = new TableElement(GAP, elementLeft, i, j, max.getScore(), max);
     }
 
     private void fillResTable(int i, int j) {
