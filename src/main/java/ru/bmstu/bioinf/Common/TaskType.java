@@ -1,4 +1,4 @@
-package ru.bmstu.bioinf.lab1;
+package ru.bmstu.bioinf.Common;
 
 /**
  * Возможные виды таблиц

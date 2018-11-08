@@ -1,20 +1,17 @@
-package ru.bmstu.bioinf.lab1;
+package ru.bmstu.bioinf.lab2;
 
 import org.junit.Test;
 import ru.bmstu.bioinf.Common.Sequence;
 import ru.bmstu.bioinf.Common.SequenceReader;
 
-/**
- * Тесты для лабораторной работы
- */
 public class TableTest {
     private static final String UP = "up";
     private static final String LEFT = "left";
 
     @Test
     public void test1() {
-        Sequence sequence1 = new Sequence(UP, "ATTGC");
-        Sequence sequence2 = new Sequence(LEFT, "ATGC");
+        Sequence sequence1 = new Sequence(UP, "ACGT");
+        Sequence sequence2 = new Sequence(LEFT, "ACGGCTT");
         FineTable fineTable = new DNAfullTable();
         new Table(sequence1, sequence2, fineTable).printResult();
     }
@@ -23,7 +20,7 @@ public class TableTest {
     public void test2() {
         Sequence sequence1 = new Sequence(UP, "AGGAATA");
         Sequence sequence2 = new Sequence(LEFT, "AGCATT");
-        FineTable fineTable = new DNAfullTable(-3);
+        FineTable fineTable = new DNAfullTable(-10, -1);
         new Table(sequence1, sequence2, fineTable).printResult();
     }
 
@@ -39,7 +36,7 @@ public class TableTest {
     public void test4() {
         Sequence sequence1 = new Sequence(UP, "KKLRTNFYKY");
         Sequence sequence2 = new Sequence(LEFT, "KNFCQCY");
-        FineTable fineTable = new Blosum62Table(-3);
+        FineTable fineTable = new Blosum62Table(-10, -1);
         new Table(sequence1, sequence2, fineTable).printResult();
     }
 

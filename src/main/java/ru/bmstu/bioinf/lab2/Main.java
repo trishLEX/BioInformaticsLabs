@@ -1,4 +1,4 @@
-package ru.bmstu.bioinf.lab1;
+package ru.bmstu.bioinf.lab2;
 
 import org.apache.commons.cli.*;
 import ru.bmstu.bioinf.Common.Sequence;
@@ -11,9 +11,13 @@ public class Main {
     public static void main(String[] args) {
         Options options = new Options();
 
-        Option gapOption = new Option("g", "gap", true, "gap error, default is -2");
-        gapOption.setRequired(false);
-        options.addOption(gapOption);
+        Option gapOpenOption = new Option("go", "gapOpen", true, "open gap error, default is -2");
+        gapOpenOption.setRequired(false);
+        options.addOption(gapOpenOption);
+
+        Option gapExtendOption = new Option("ge", "gapExtend", true, "extend gap error, default is -1");
+        gapExtendOption.setRequired(false);
+        options.addOption(gapExtendOption);
 
         Option fileOption = new Option("o", true, "file output");
         fileOption.setRequired(false);
@@ -40,7 +44,8 @@ public class Main {
 
             TaskType taskType = cmd.getOptionValue("t").equals("AA") ? TaskType.BLOSUM62 : TaskType.DNA_FULL;
 
-            Integer gap = cmd.hasOption("g") ? Integer.parseInt(cmd.getOptionValue("g")) : null;
+            Integer openGap = cmd.hasOption("go") ? Integer.parseInt(cmd.getOptionValue("go")) : null;
+            Integer extendGap = cmd.hasOption("ge") ? Integer.parseInt(cmd.getOptionValue("ge")) : null;
 
             String file = cmd.getOptionValue("f");
 
@@ -51,13 +56,13 @@ public class Main {
             FineTable fineTable;
             switch (taskType) {
                 case DNA_FULL:
-                    fineTable = new DNAfullTable(gap);
+                    fineTable = new DNAfullTable(openGap, extendGap);
                     break;
                 case BLOSUM62:
-                    fineTable = new Blosum62Table(gap);
+                    fineTable = new Blosum62Table(openGap, extendGap);
                     break;
                 default:
-                    fineTable = new DefaultFineTable(gap);
+                    fineTable = new DefaultFineTable(openGap, extendGap);
                     break;
             }
 

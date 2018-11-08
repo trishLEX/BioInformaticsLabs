@@ -1,5 +1,8 @@
 package ru.bmstu.bioinf.lab1;
 
+import ru.bmstu.bioinf.Common.Sequence;
+import ru.bmstu.bioinf.Common.TableElement;
+
 import java.io.*;
 
 import static ru.bmstu.bioinf.lab1.FineTable.GAP;

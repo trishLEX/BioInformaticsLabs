@@ -1,4 +1,4 @@
-package ru.bmstu.bioinf.lab1;
+package ru.bmstu.bioinf.Common;
 
 import java.io.*;
 import java.util.ArrayList;
