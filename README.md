@@ -2,7 +2,7 @@
   
 Чтобы собрать проект: mvn package, находясь в корне проекта;  
 
-#Lab1
+# Lab1  
 Чтобы запустить тесты: mvn -Dtest=lab1/TableTest test; (все остальные классы с тестами - функциональное тестирование)  
 Чтобы запустить проект: mvn exec:java@lab1 -Dexec.args="<необходимые ключи>";  
 
@@ -12,7 +12,7 @@
 * -o <arg>        :  file output  
 * -t,--type <arg> :  AA for amino acids, N for nucleotides - обязательный ключ  
 
-#Lab2  
+# Lab2  
 Чтобы запустить тесты: mvn -Dtest=lab2/TableTest test; (все остальные классы с тестами - функциональное тестирование)  
 Чтобы запустить проект: mvn exec:java@lab2 -Dexec.args="<необходимые ключи>";    
   
